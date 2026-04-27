@@ -2,5 +2,14 @@
 
 public class Amount
 {
-    // Isi kode di sini
+    public decimal Value { get; }
+
+    public Amount(decimal value)
+    {
+        // Aturan Bisnis: Tidak boleh negatif
+        if (value < 0)
+            throw new ArgumentException("Jumlah (Amount) tidak boleh negatif.");
+
+        Value = value;
+    }
 }

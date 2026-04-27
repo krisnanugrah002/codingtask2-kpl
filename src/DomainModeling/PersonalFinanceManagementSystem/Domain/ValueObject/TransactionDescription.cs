@@ -2,5 +2,14 @@
 
 public class TransactionDescription
 {
-    // Isi kode di sini
+    public string Value { get; }
+
+    public TransactionDescription(string description)
+    {
+        // Aturan Bisnis: Tidak boleh kosong atau spasi
+        if (string.IsNullOrWhiteSpace(description))
+            throw new ArgumentException("Deskripsi transaksi tidak boleh kosong.");
+
+        Value = description;
+    }
 }
